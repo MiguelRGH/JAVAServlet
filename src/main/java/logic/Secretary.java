@@ -5,33 +5,38 @@
 package logic;
 
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author RYZEN
  */
+
+@Entity
 public class Secretary extends Person {
-    private int secretaryID;
+    //private int secretaryID;
     private String position;
-    private String user;
+    @OneToOne
+    private User user;
 
     public Secretary() {
     }
 
-    public Secretary(int secretaryID, String position, String user, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
-        super(name, lastName, phoneNumber, addres, bornDate);
-        this.secretaryID = secretaryID;
+    public Secretary(String position, User user, int id, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+        super(id, name, lastName, phoneNumber, addres, bornDate);
         this.position = position;
         this.user = user;
     }
-
+   
+    /*
     public int getSecretaryID() {
         return secretaryID;
     }
 
     public void setSecretaryID(int secretaryID) {
         this.secretaryID = secretaryID;
-    }
+    }*/
 
     public String getPosition() {
         return position;
@@ -41,11 +46,11 @@ public class Secretary extends Person {
         this.position = position;
     }
 
-    public String getUser() {
+    public User getUser() {
         return user;
     }
 
-    public void setUser(String user) {
+    public void setUser(User user) {
         this.user = user;
     }
     

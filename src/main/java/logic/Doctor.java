@@ -4,56 +4,55 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Miguel Angel Rodriguez Carvajal
  */
-public class Doctor extends Person {
-    private int doctorId;
-    private String Specialty;
-    private ArrayList<Innings> doctorsInnings;
-    private String User;
-    private String Schedule;
 
+@Entity
+public class Doctor extends Person implements Serializable {
+    //private int doctorId;
+    private String specialty;
+    @OneToMany (mappedBy = "doc")
+    private ArrayList<Innings> doctorsInnings;
+    @OneToOne
+    private User user;
+    @OneToOne
+    private Schedule schedule;
+    
     public Doctor() {
     }
 
-    public Doctor(
-            int doctorId, 
-            String Specialty, 
-            ArrayList<Innings> doctorsInnings, 
-            String User, 
-            String Schedule, 
-            String name, 
-            String lastName, 
-            String phoneNumber, 
-            String addres, 
-            Date bornDate) {
-        super(name, lastName, phoneNumber, addres, bornDate);
-        this.doctorId = doctorId;
-        this.Specialty = Specialty;
+    public Doctor(String specialty, ArrayList<Innings> doctorsInnings, User user, Schedule schedule, int id, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+        super(id, name, lastName, phoneNumber, addres, bornDate);
+        this.specialty = specialty;
         this.doctorsInnings = doctorsInnings;
-        this.User = User;
-        this.Schedule = Schedule;
+        this.user = user;
+        this.schedule = schedule;
     }
 
+    /*
     public int getDoctorId() {
         return doctorId;
     }
 
     public void setDoctorId(int doctorId) {
         this.doctorId = doctorId;
-    }
+    }*/
 
     public String getSpecialty() {
-        return Specialty;
+        return specialty;
     }
 
     public void setSpecialty(String Specialty) {
-        this.Specialty = Specialty;
+        this.specialty = Specialty;
     }
 
     public ArrayList<Innings> getDoctorsInnings() {
@@ -64,21 +63,21 @@ public class Doctor extends Person {
         this.doctorsInnings = doctorsInnings;
     }
 
-    public String getUser() {
-        return User;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser(String User) {
-        this.User = User;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getSchedule() {
-        return Schedule;
+    public Schedule getSchedule() {
+        return schedule;
     }
 
-    public void setSchedule(String Schedule) {
-        this.Schedule = Schedule;
+    public void setSchedule(Schedule schedule) {
+        this.schedule = schedule;
     }
-    
+
     
 }

@@ -4,32 +4,36 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
 
 /**
  *
  * @author RYZEN
  */
-public class Companion extends Person {
-    private int companionID;
+
+@Entity
+public class Companion extends Person implements Serializable {
+    //private int companionID;
     private String relationship;
 
     public Companion() {
     }
 
-    public Companion(int companionID, String relationship, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
-        super(name, lastName, phoneNumber, addres, bornDate);
-        this.companionID = companionID;
+    public Companion(String relationship, int id, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+        super(id, name, lastName, phoneNumber, addres, bornDate);
         this.relationship = relationship;
     }
 
+    /*
     public int getCompanionID() {
         return companionID;
     }
 
     public void setCompanionID(int companionID) {
         this.companionID = companionID;
-    }
+    }*/
 
     public String getRelationship() {
         return relationship;

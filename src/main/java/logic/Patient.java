@@ -4,36 +4,33 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 /**
  *
  * @author Miguel Angel Rodriguez Carvajal
  */
-public class Patient extends Person {
-    private int patientID;
+
+@Entity
+public class Patient extends Person implements Serializable {
+    //private int patientID;
     private boolean privatePatient;
     private String bloodType;
+    @OneToOne
     private Companion companion;
+    @OneToMany (mappedBy = "pat")
     private ArrayList<Innings> pateintsInnings;
 
     public Patient() {
     }
 
-    public Patient(
-            int patientID, 
-            boolean privatePatient, 
-            String bloodType, 
-            Companion companion, 
-            ArrayList<Innings> pateintsInnings, 
-            String name, 
-            String lastName, 
-            String phoneNumber, 
-            String addres, 
-            Date bornDate) {
-        super(name, lastName, phoneNumber, addres, bornDate);
-        this.patientID = patientID;
+    public Patient(boolean privatePatient, String bloodType, Companion companion, ArrayList<Innings> pateintsInnings, int id, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+        super(id, name, lastName, phoneNumber, addres, bornDate);
         this.privatePatient = privatePatient;
         this.bloodType = bloodType;
         this.companion = companion;
@@ -55,14 +52,15 @@ public class Patient extends Person {
     public void setCompanion(Companion companion) {
         this.companion = companion;
     }
-
+    
+    /*
     public int getPatientID() {
         return patientID;
     }
 
     public void setPatientID(int patientID) {
         this.patientID = patientID;
-    }
+    }*/
 
     public boolean isPrivatePatient() {
         return privatePatient;

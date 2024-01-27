@@ -4,28 +4,54 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Miguel Angel Rodriguez
  */
-public class Person {
+
+@Entity                                                         //Lo mapea como una entidad
+@Inheritance (strategy=InheritanceType.TABLE_PER_CLASS)         //Mapea la herencia
+
+public class Person implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String name;
     private String lastName;
     private String phoneNumber;
     private String addres;
+    @Temporal(TemporalType.DATE)
     private Date bornDate;
 
     public Person() {
     }
 
-    public Person(String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+    public Person(int id, String name, String lastName, String phoneNumber, String addres, Date bornDate) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
         this.addres = addres;
         this.bornDate = bornDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -67,6 +93,5 @@ public class Person {
     public void setBornDate(Date bornDate) {
         this.bornDate = bornDate;
     }
-    
     
 }

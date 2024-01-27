@@ -4,18 +4,38 @@
  */
 package logic;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author RYZEN
  */
-public class Innings {
+
+@Entity
+public class Innings implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) 
     private int inningsID;
+    @Temporal(TemporalType.DATE)
     private Date inningDate;
     private String inningHour;
     private String treatment;
-
+    @ManyToOne
+    @JoinColumn (name = "inningsID")
+    private Doctor doc;
+    @ManyToOne
+    @JoinColumn (name = "inningsID2")
+    private Patient pat;
+    
     public Innings() {
     }
 
