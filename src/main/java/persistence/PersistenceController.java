@@ -5,6 +5,7 @@
 package persistence;
 
 import logic.Schedule;
+import logic.User;
 
 /**
  *
@@ -15,10 +16,14 @@ public class PersistenceController {
     CompanionJpaController companionJpa = new CompanionJpaController();
     DoctorJpaController doctorJpa = new DoctorJpaController();
     InningsJpaController inningJpa = new InningsJpaController();
-    PatientJpaController patientJpa = new  PatientJpaController();
+    PatientJpaController patientJpa = new PatientJpaController();
     PersonJpaController personJpa = new PersonJpaController();
     ScheduleJpaController scheduleJpa = new ScheduleJpaController();
     SecretaryJpaController secreatryJpa = new SecretaryJpaController();
     UserJpaController userJpa = new UserJpaController();
+
+    public void createUser(User user) {
+        userJpa.create(user);
+    }
             
 }
