@@ -4,7 +4,6 @@
  */
 package persistence;
 
-import logic.Schedule;
 import logic.User;
 
 /**
@@ -22,6 +21,9 @@ public class PersistenceController {
     SecretaryJpaController secreatryJpa = new SecretaryJpaController();
     UserJpaController userJpa = new UserJpaController();
 
+    public PersistenceController() {
+    }
+       
     public void createUser(User user) {
         userJpa.create(user);
     }

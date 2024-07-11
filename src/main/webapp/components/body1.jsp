@@ -35,9 +35,9 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading"></div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-bars"></i></div>
-                                Menú
+                            <a class="nav-link" href="index.jsp">
+                                <div class="sb-nav-link-icon"><i class="fas fa-solid fa-house"></i></div>
+                                Inicio
                                 <!-- Cambio -->
                             </a>
                             <div class="sb-sidenav-menu-heading">Gestionar</div>
@@ -52,10 +52,11 @@
                                 <nav class="sb-sidenav-menu-nested nav">
                                     <a class="nav-link" href="#">Listar médicos</a>
                                     <!-- Cambio -->
-                                    <a class="nav-link" href="#">Agregar médico</a>
+                                    <a class="nav-link" href="createDoctor.jsp">Agregar médico</a>
                                     <!-- Cambio -->
                                 </nav>
                             </div>
+                            
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-solid fa-hospital-user"></i></div>
                                 Pacientes
@@ -90,6 +91,23 @@
                                     </div>
                                 </nav>
                             </div>
+                            
+                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseUser" aria-expanded="false" aria-controls="collapseLayouts">
+                                <div class="sb-nav-link-icon">
+                                    <i class="fas fa-solid fa-user-doctor"></i></div>
+                                    Usuarios
+                                <!-- Cambio -->
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                            </a>
+                            <div class="collapse" id="collapseUser" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav">
+                                    <a class="nav-link" href="#">Listar usuarios</a>
+                                    <!-- Cambio -->
+                                    <a class="nav-link" href="createUser.jsp">Agregar usuario</a>
+                                    <!-- Cambio -->
+                                </nav>
+                            </div>
+                            
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="charts.html">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>

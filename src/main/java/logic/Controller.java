@@ -15,9 +15,11 @@ public class Controller {
     
     PersistenceController persistControl = new PersistenceController();
     
-    
-    public void createUser (int id, String userName, String password, String role){
-        User user = new User(id, userName, password, role);
+    public void createUser (String userName, String password, String role){
+        User user = new User();
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setRole(role);
         persistControl.createUser(user);
         
     }

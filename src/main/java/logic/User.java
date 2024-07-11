@@ -21,16 +21,29 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userID;
+    private String userName;
     private String password;
     private String role;
 
-    public User(int id, String userName, String password1, String role1) {
+    public User() {
     }
 
-    public User(int userID, String password, String role) {
+    public User(int userID, String userName, String password, String role) {
         this.userID = userID;
+        this.userName = userName;
         this.password = password;
         this.role = role;
+    }
+    
+    public User(String userName, String password1, String role1) {
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public int getUserID() {

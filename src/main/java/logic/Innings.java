@@ -30,10 +30,10 @@ public class Innings implements Serializable {
     private String inningHour;
     private String treatment;
     @ManyToOne
-    @JoinColumn (name = "inningsID")
+    @JoinColumn (name = "docID")
     private Doctor doc;
     @ManyToOne
-    @JoinColumn (name = "inningsID2")
+    @JoinColumn (name = "patID")
     private Patient pat;
     
     public Innings() {
